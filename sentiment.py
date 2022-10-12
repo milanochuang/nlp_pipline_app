@@ -5,7 +5,7 @@ from matplotlib.font_manager import FontProperties
 
 def get_sent_score(inputSTR):
     result = SnowNLP(inputSTR)
-    sentiment_score = result.sentiment
+    sentiment_score = result.sentiments
     return sentiment_score
 
 def plot(inputDF):
