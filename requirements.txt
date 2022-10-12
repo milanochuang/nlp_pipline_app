@@ -7,3 +7,4 @@ python-dotenv==0.21.0
 scrapy-user-agents==0.1.1
 scrapy-fake-useragent==1.4.4
 snownlp==0.12.3
+seaborn==0.12.0
