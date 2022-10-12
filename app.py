@@ -8,6 +8,7 @@ from read import file_exists, read_json
 from sentiment import get_sent_score
 from threading import Thread
 import pandas as pd
+import shutil
 
 
 st.title("社會情緒波動感測器")
@@ -26,8 +27,6 @@ if index_from and index_to:
         pass
     else:
         if file_exists:
-            dir_path = os.path.dirname(os.path.realpath(__file__))
-            print(dir_path)
             resultLIST = read_json()
             resultDICT = {}
             for post in resultLIST:
@@ -46,6 +45,7 @@ if index_from and index_to:
                 average_list.append(average)
             resultDF['Average'] = average_list
             st.line_chart(resultDF, x='Date', y='Average')
+            shutil.rmtree("./ptt-crawler/data")
             
     
 # with open("./ptt-crawler/data/Soft_Job/2022/M.1661432028.A.2E0.json", 'r') as f:
