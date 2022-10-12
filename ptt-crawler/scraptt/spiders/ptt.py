@@ -33,7 +33,7 @@ class PttSpider(BaseSpider):
             create_post_data(response)
         )
         author, alias, board, title, date = meta_data
-        city, country = get_ip_loc(ip, self.ip_cache)
+        # city, country = get_ip_loc(ip, self.ip_cache)
 
         data = {
             "board": board,
@@ -42,8 +42,8 @@ class PttSpider(BaseSpider):
             "title": title,
             "date": date,
             "ip": ip,
-            "city": city,
-            "country": country,
+            # "city": city,
+            # "country": country,
             "body": body,
             "post_vote": comment_counter,
             "post_id": post_id,
