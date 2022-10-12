@@ -25,6 +25,8 @@ if index_from and index_to:
         pass
     else:
         if file_exists:
+            dir_path = os.path.dirname(os.path.realpath(__file__))
+            print(dir_path)
             resultLIST = read_json()
             resultDICT = {}
             for post in resultLIST:
