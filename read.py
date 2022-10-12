@@ -10,6 +10,8 @@ def file_exists():
 
 def read_json():
     resultLIST = []
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    print(dir_path)
     for filename in os.listdir("./ptt-crawler/data/Gossiping/2022"):
         resultDICT = {}
         with open(os.listdir("./ptt-crawler/data/Gossiping/2022", filename), 'r') as f:
