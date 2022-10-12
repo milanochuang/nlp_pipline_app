@@ -39,7 +39,7 @@ if index_from and index_to:
                 else:
                     resultDICT[date] = []
                     resultDICT[date].append(score)
-            resultDF = pd.DataFrame(resultDICT.item(), columns=['Date', 'Score'])
+            resultDF = pd.DataFrame(resultDICT.items(), columns=['Date', 'Score'])
             average_list = []
             for value in resultDF['Score']:
                 average = sum(value)/len(value)
