@@ -1,4 +1,5 @@
 from asyncore import read
+from sys import api_version
 import streamlit as st
 import json
 import os
@@ -38,11 +39,13 @@ if index_from and index_to:
                 else:
                     resultDICT[date] = []
                     resultDICT[date].append(score)
-            for key, value in resultDICT:
+            resultDF = pd.DataFrame(resultDICT.item(), columns=['Date', 'Score'])
+            average_list = []
+            for value in resultDF['Score']:
                 average = sum(value)/len(value)
-                resultDICT[key] = average
-            resultDF = pd.DataFrame(resultDICT.item(), columns=['Date', 'Average'])
-            st.line_chart(resultDF, x='Date', y='Averate')
+                average_list.append(average)
+            resultDF['Average'] = average_list
+            st.line_chart(resultDF, x='Date', y='Average')
             
     
 # with open("./ptt-crawler/data/Soft_Job/2022/M.1661432028.A.2E0.json", 'r') as f:
