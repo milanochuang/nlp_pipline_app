@@ -14,7 +14,7 @@ def read_json():
     print(dir_path)
     for filename in os.listdir("./ptt-crawler/data/Gossiping/2022"):
         resultDICT = {}
-        with open(os.listdir("./ptt-crawler/data/Gossiping/2022", filename), 'r') as f:
+        with open(os.path.join("./ptt-crawler/data/Gossiping/2022", filename), 'r') as f:
             article = json.load(f)
         resultDICT['id'] = article['post_id']
         resultDICT['date'] = re.search("2022-\d{1,2}-\d{1,2}", article['date']).group()
