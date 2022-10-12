@@ -22,7 +22,7 @@ if index_from and index_to:
     index_from = int(index_from)
     index_to = int(index_to)
     st.write("你所輸入的頁數為{}到{}".format(index_from, index_to))
-    bash_code = "cd ptt-crawler && scrapy crawl ptt -a boards=Gossiping -a index_from={} -a index_to={} -a ip_cache=False".format(index_from, index_to)
+    bash_code = "cd ptt-crawler && scrapy crawl ptt -a boards=Gossiping -a index_from={} -a index_to={}".format(index_from, index_to)
     thread = Thread(group=None, target=lambda:os.system(bash_code))
     thread.run()
     # Later
